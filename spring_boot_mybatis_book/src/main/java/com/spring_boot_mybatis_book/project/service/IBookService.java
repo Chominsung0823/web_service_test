@@ -1,0 +1,41 @@
+package com.spring_boot_mybatis_book.project.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.spring_boot_mybatis_book.project.model.BookVO;
+
+
+
+
+public interface IBookService {
+
+  //전체 도서조회: DAO에게 요청 -> DB에서 전체 도서(VO 여러 개(ArrayList)) 찾아서 반환
+  public ArrayList<BookVO> listAllBook();
+  
+  //도서 정보 등록: insertBook(): 1개의 도서 정보를 전달 받아서 DAO에게 전달 -> DB에 저장.(반환 없음)
+  public void insertBook(BookVO vo); 
+  
+  //도서 정보 수정: updateBook(): 1개의 수정된 도서 정보를 전달 받아서 DAO에게 전달
+  // -> DB에 해당 상품의 수정된 값 저장.(반환 없음)
+  public void updateBook(BookVO vo);
+  
+  //도서 정보 삭제: deleteBook(): 1개의 상품 정보(기본키만 필요)를 전달 받아서 DAO에게 전달 
+  // -> DB에 해당 도서 삭제.(반환 없음)
+  public void deleteBook(String bookNo);
+  
+  //상세 도서 정보 조회: detailViewBook(): 1개의 도서 정보(기본키만 필요)를 전달 받아서 DAO에게 전달
+  // -> DB에 해당 도서 1개 찾아서 반환.
+  public BookVO detailViewBook(String bookNo);
+  
+  //상품번호 중복 체크
+  public String bookNoCheck(String bookNo);
+  
+  //도서 검색
+  public ArrayList<BookVO> bookSearch(HashMap<String, Object> map);
+}
+
+
+
+
+
